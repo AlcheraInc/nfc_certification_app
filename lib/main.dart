@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nfc_tag_app/routes/app_pages.dart';
-import 'package:nfc_tag_app/routes/app_routes.dart';
+import 'package:nfc_certification_app/routes/app_pages.dart';
+import 'package:nfc_certification_app/routes/app_routes.dart';
 
 void main() {
+  // This call ensures the Flutter binding has been set up before creating the
+  // MethodChannel-based model.
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(GetMaterialApp(
     initialRoute: Routes.MAIN,
     getPages: AppPages.pages,

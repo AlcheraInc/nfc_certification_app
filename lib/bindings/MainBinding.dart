@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:nfc_tag_app/controller/main_controller.dart';
+import 'package:nfc_certification_app/controller/main_controller.dart';
 
 class MainBinding extends Bindings {
   @override

@@ -24,7 +24,7 @@ class MainApp extends GetView<MainController> {
 
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color(0xffF7F7F7),
           image: DecorationImage(
               image: AssetImage(

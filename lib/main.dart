@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:nfc_certification_app/routes/app_pages.dart';
 import 'package:nfc_certification_app/routes/app_routes.dart';
@@ -7,6 +8,11 @@ void main() {
   // This call ensures the Flutter binding has been set up before creating the
   // MethodChannel-based model.
   WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
   runApp(GetMaterialApp(
     initialRoute: Routes.MAIN,

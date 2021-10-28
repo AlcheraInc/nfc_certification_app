@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:nfc_certification_app/controller/profile_controller.dart';
 import 'package:nfc_certification_app/routes/app_routes.dart';
 import 'package:nfc_certification_app/ui/platform_views/native_camera_view.dart';
@@ -29,10 +30,6 @@ class ProfileApp extends GetView<ProfileController> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Expanded(
-                            flex: 1,
-                            child: NativeCameraView(),
-                          ),
                           Expanded(
                             flex: 4,
                             child: Image(
@@ -137,15 +134,33 @@ class _ProfileInfoPage extends StatelessWidget {
             )
         ),
         Expanded(flex: 3,
-          child: SizedBox(
+          child: Container(
             width: Get.width * 0.975,
             child: Stack(
-            children: [
-              SvgPicture.asset(
-                "assets/images/profile_barcode.svg",
-                fit: BoxFit.fill,
-              ),
-            ]
+              alignment: Alignment.center,
+              children: [
+                SvgPicture.asset(
+                  "assets/images/profile_barcode_bg.svg",
+                  fit: BoxFit.fill,
+                ),
+                Container(
+                  width: Get.width * 0.7,
+                  height: Get.height * 0.15,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Spacer(),
+                      SvgPicture.asset(
+                        "assets/images/img_barcode.svg",
+                        height: Get.height * 0.1,
+                      ),
+                      Spacer(),
+                      Text("등록일   ${DateFormat("yyyy.MM.dd").format(DateTime.now())}"),
+                    ],
+                  )
+                )
+              ]
           ),
         )),
       ],

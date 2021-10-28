@@ -71,8 +71,8 @@ flutter:
     - assets/images/profile_bg.png
     - assets/images/img_sample_profile.png
     - assets/images/profile_title.svg
-    - assets/images/profile_barcode.svg
-    -
+    - assets/images/img_barcode.svg
+    - assets/images/profile_barcode_bg.svg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

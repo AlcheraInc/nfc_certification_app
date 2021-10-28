@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.alcherainc.nfc_certification_app">
    <application
-        android:label="nfc_certification_app"
+        android:label="Sejong Demo"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

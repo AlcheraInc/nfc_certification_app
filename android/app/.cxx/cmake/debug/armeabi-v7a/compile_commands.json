@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/jhoonpark/Documents/Github/nfc_certification_app/android/app/.cxx/cmake/debug/armeabi-v7a",
+  "command": "/Users/jhoonpark/Library/Android/sdk/ndk/20.1.5948944/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi24 --gcc-toolchain=/Users/jhoonpark/Library/Android/sdk/ndk/20.1.5948944/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/jhoonpark/Library/Android/sdk/ndk/20.1.5948944/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Ddummy_lib_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -march=armv7-a -mthumb -Wa,--noexecstack -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/dummy-lib.dir/dummy-lib.cpp.o -c /Users/jhoonpark/Documents/Github/nfc_certification_app/android/app/src/main/cpp/dummy-lib.cpp",
+  "file": "/Users/jhoonpark/Documents/Github/nfc_certification_app/android/app/src/main/cpp/dummy-lib.cpp"
+}
+]

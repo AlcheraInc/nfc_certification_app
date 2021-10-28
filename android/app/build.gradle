@@ -39,15 +39,24 @@ android {
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+
+        main.jniLibs.srcDirs += ["src/main/cpp/jniLibs/"]
+        main.jni.srcDirs = []
+        main.assets.srcDirs += ["src/main/assets/"]
     }
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.alcherainc.nfc_certification_app"
-        minSdkVersion 16
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+
+        ndk {
+            abiFilters += "arm64-v8a"
+            abiFilters += "armeabi-v7a"
+        }
     }
 
     buildTypes {
@@ -55,6 +64,14 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
+        }
+    }
+
+    ndkVersion "20.1.5948944"
+
+    externalNativeBuild {
+        cmake {
+            path = file("src/main/cpp/CMakeLists.txt")
         }
     }
 }
@@ -65,4 +82,29 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation("androidx.core:core-ktx:1.3.2")
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2-native-mt"
+
+    // CameraX core library using the camera2 implementation
+    def camerax_version = "1.0.0-rc01"
+    def camera_view_version = "1.0.0-alpha20"
+    // The following line is optional, as the core library is included indirectly by camera-camera2
+    implementation("androidx.camera:camera-core:${camerax_version}")
+    implementation("androidx.camera:camera-camera2:${camerax_version}")
+    // If you want to additionally use the CameraX Lifecycle library
+    implementation("androidx.camera:camera-lifecycle:${camerax_version}")
+    // If you want to additionally use the CameraX View class
+    implementation("androidx.camera:camera-view:${camera_view_version}")
+
+    //  Alchera FaceSDK
+    implementation(fileTree("dir": "libs", "include": "*.jar"))
+
+    //  Thermal sensors
+    implementation project(path: ':telpo_temperature_v1.1.0')
+    implementation project(path: ':FaceSDKForHeimann-release')
+
+    //  Barcode scanner
+    implementation("com.google.zxing:core:3.4.1")
 }

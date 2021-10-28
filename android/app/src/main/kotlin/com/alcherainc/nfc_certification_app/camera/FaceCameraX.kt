@@ -38,8 +38,8 @@ import java.util.concurrent.Executors
 
 class FaceCameraX(
     private val activity: ComponentActivity,
-//    private val previewViewWrapperView: FrameLayout,
-//    private val previewView: PreviewView,
+    private val previewViewWrapperView: FrameLayout,
+    private val previewView: PreviewView,
     private val isThermalSupport: Boolean,
     private val isFaceMaskSupport: Boolean,
     private val isAntispoofingSupport: Boolean,
@@ -110,7 +110,7 @@ class FaceCameraX(
     private var lensFace = 0
     private var orientation = 0
     private var cameraProvider: ProcessCameraProvider? = null
-//    private var preview: Preview? = null
+    private var preview: Preview? = null
     private var imageAnalyzer: ImageAnalysis? = null
     private var irCameraId: String = ""
     private var irCameraSession: CameraCaptureSession? = null;
@@ -148,9 +148,9 @@ class FaceCameraX(
             val previewBuilder = Preview.Builder().also {
                 it.setTargetAspectRatio(AspectRatio.RATIO_16_9)
             }
-//            preview = previewBuilder.build().also {
-//                it.setSurfaceProvider(previewView.surfaceProvider)
-//            }
+            preview = previewBuilder.build().also {
+                it.setSurfaceProvider(previewView.surfaceProvider)
+            }
             imageAnalyzer = ImageAnalysis.Builder().also {
                 it.setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                 it.setTargetResolution(RGB_CAMERA_SIZE)
@@ -166,7 +166,7 @@ class FaceCameraX(
                 cameraProvider!!.bindToLifecycle(
                     activity,
                     RGB_CAMERA_SELECTOR,
-//                    preview,
+                    preview,
                     imageAnalyzer
                 )
                 activity.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)

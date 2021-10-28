@@ -15,7 +15,12 @@ class ProfileApp extends GetView<ProfileController> {
     final headerHeightWeight = 0.15;
     return Scaffold(
       body: Container(
-        child: Column(
+        child:
+        // Container(
+        //   height: Get.height * 0.2,
+        //   child: NativeCameraView(),
+        // ),
+        Column(
           children: [
             Image(
               height: Get.height * headerHeightWeight,

@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:nfc_certification_app/controller/profile_controller.dart';
 import 'package:nfc_certification_app/routes/app_routes.dart';
+import 'package:nfc_certification_app/ui/platform_views/native_camera_view.dart';
 
 class ProfileApp extends GetView<ProfileController> {
 
@@ -28,6 +29,10 @@ class ProfileApp extends GetView<ProfileController> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+                          Expanded(
+                            flex: 1,
+                            child: NativeCameraView(),
+                          ),
                           Expanded(
                             flex: 4,
                             child: Image(

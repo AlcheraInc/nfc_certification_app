@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:nfc_certification_app/controller/main_controller.dart';
 import 'package:nfc_certification_app/routes/app_pages.dart';
 import 'package:nfc_certification_app/routes/app_routes.dart';
+import 'package:nfc_certification_app/ui/platform_views/native_camera_view.dart';
 
 const double logoSizeWidth = 100;
 const double logoSizeHeight = 83.67;
@@ -45,7 +46,7 @@ class MainApp extends GetView<MainController> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: Get.height * 0.075),
+                      SizedBox(height: Get.height * 0.075,),
                       SizedBox(
                         child: Text('정부청사\n출입관리시스템', style: const TextStyle(fontSize: 35),),
                       ),

@@ -43,7 +43,7 @@ class FaceCameraX(
     private val isThermalSupport: Boolean,
     private val isFaceMaskSupport: Boolean,
     private val isAntispoofingSupport: Boolean,
-//    private val faceGraphicView: FaceGraphicView?,
+    private val faceGraphicView: FaceGraphicView?,
     heatmapView: FrameLayout?,
     faceClipView: ImageView?,
     faceIRClipView: ImageView?,
@@ -88,9 +88,9 @@ class FaceCameraX(
     }
 
     init {
-        //faceProcessor.faceGraphicView = faceGraphicView
+        faceProcessor.faceGraphicView = faceGraphicView
         faceProcessor.faceThermal = faceThermal
-        //faceGraphicView?.setCameraSelector(RGB_CAMERA_SELECTOR)
+        faceGraphicView?.setCameraSelector(RGB_CAMERA_SELECTOR)
 //        faceGraphicView?.faceProximity = faceProximity
 //        faceGraphicView?.facePower = facePower
 //        faceGraphicView?.faceThermal = faceThermal
@@ -130,20 +130,20 @@ class FaceCameraX(
 
             if (Device.TYPE == Device.DONGA) {
                 // DONA전기의 카메라의 경우 device에서 resize가 안된 상태로 들어옴. 때문에 강제로 사이즈 조정해야 함.
-//                previewView.scaleType = PreviewView.ScaleType.FIT_CENTER
-//                previewView.scaleX = RGB_CAMERA_SIZE.height.toFloat() / RGB_CAMERA_SIZE.width.toFloat()
-//                previewView.scaleY = RGB_CAMERA_SIZE.width.toFloat() / RGB_CAMERA_SIZE.height.toFloat()
-//
-//                val metrics = DisplayMetrics().also {
-//                    previewView.display.getRealMetrics(it)
-//                }
-//                val scaleX = previewView.scaleY
-//                previewViewWrapperView.scaleX = scaleX
-//                previewViewWrapperView.scaleY = scaleX
-//                val graphicScaleX = metrics.widthPixels.toFloat() / RGB_CAMERA_SIZE.height.toFloat()
-//                Log.d(TAG, "display.getRealMetrics $metrics")
-//                faceGraphicView?.scaleX = graphicScaleX
-//                faceGraphicView?.scaleY = graphicScaleX
+                previewView.scaleType = PreviewView.ScaleType.FIT_CENTER
+                previewView.scaleX = RGB_CAMERA_SIZE.height.toFloat() / RGB_CAMERA_SIZE.width.toFloat()
+                previewView.scaleY = RGB_CAMERA_SIZE.width.toFloat() / RGB_CAMERA_SIZE.height.toFloat()
+
+                val metrics = DisplayMetrics().also {
+                    previewView.display.getRealMetrics(it)
+                }
+                val scaleX = previewView.scaleY
+                previewViewWrapperView.scaleX = scaleX
+                previewViewWrapperView.scaleY = scaleX
+                val graphicScaleX = metrics.widthPixels.toFloat() / RGB_CAMERA_SIZE.height.toFloat()
+                Log.d(TAG, "display.getRealMetrics $metrics")
+                faceGraphicView?.scaleX = graphicScaleX
+                faceGraphicView?.scaleY = graphicScaleX
             }
             val previewBuilder = Preview.Builder().also {
                 it.setTargetAspectRatio(AspectRatio.RATIO_16_9)
@@ -184,7 +184,7 @@ class FaceCameraX(
             } else {
                 CameraSelector.DEFAULT_BACK_CAMERA
             }
-//            faceGraphicView?.setCameraSelector(RGB_CAMERA_SELECTOR)
+            faceGraphicView?.setCameraSelector(RGB_CAMERA_SELECTOR)
             setRotation(CameraOrientationUtil.degreesToSurfaceRotation(orientation))
         }
     }
@@ -203,6 +203,7 @@ class FaceCameraX(
                         } else {
                             CameraSelector.DEFAULT_BACK_CAMERA
                         }
+                        faceGraphicView?.setCameraSelector(RGB_CAMERA_SELECTOR)
                     }
                     // Bind use cases to camera
                     cameraProvider!!.bindToLifecycle(

@@ -5,7 +5,6 @@ import android.graphics.*
 import android.hardware.camera2.CameraMetadata
 import android.renderscript.Float4
 import android.renderscript.Matrix4f
-import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import androidx.camera.core.CameraSelector
@@ -14,7 +13,7 @@ import com.alcherainc.facesdk.type.Face
 import com.alcherainc.facesdk.type.InputImage
 
 
-class FaceGraphicView(context: Context, attributeSet: AttributeSet) : View(context, attributeSet) {
+class FaceGraphicView(context: Context) : View(context) {
 
     var faces: Array<Face>? = null
     val transformationMatrix = Matrix()

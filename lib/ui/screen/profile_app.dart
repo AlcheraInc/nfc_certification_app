@@ -16,62 +16,62 @@ class ProfileApp extends GetView<ProfileController> {
     return Scaffold(
       body: Container(
         child:
-        // Container(
-        //   height: Get.height * 0.2,
-        //   child: NativeCameraView(),
-        // ),
-        Column(
-          children: [
-            Image(
-              height: Get.height * headerHeightWeight,
-              image: AssetImage("assets/images/img_alchera_logo.png")
-            ),
-            Stack(
-                children: [
-                  Container(
-                    width: Get.width,
-                    height: Get.height * (1.0 - headerHeightWeight),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            flex: 4,
-                            child: Image(
-                              width: Get.width,
-                              height: Get.height * 0.5,
-                              fit: BoxFit.cover,
-                              image: AssetImage("assets/images/img_sample_profile.png"),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 3,
-                            child: Image(
-                              width: Get.width,
-                              height: Get.height * 0.33,
-                              fit: BoxFit.cover,
-                              image: AssetImage("assets/images/profile_bg.png"),
-                            ),
-                          ),
-                        ]
-                    )
-                  ),
-                  Container(
-                    width: Get.width,
-                    height: Get.height * (1.0 - headerHeightWeight),
-                    child: Column(
-                      children: [
-                        const Expanded(flex: 5, child: SizedBox()),
-                        const Expanded(flex: 6,
-                            child: _ProfileInfoPage(workerId: "AL941014", workerName: "박재훈", workerDepartment: "Product Development Div.", workerType: "CTO",)
-                        )
-                      ],
-                    ),
-                  )
-                ]
-            ),
-          ]
-        )
+        Container(
+          height: Get.height,
+          child: NativeCameraView(),
+        ),
+        // Column(
+        //   children: [
+        //     Image(
+        //       height: Get.height * headerHeightWeight,
+        //       image: AssetImage("assets/images/img_alchera_logo.png")
+        //     ),
+        //     Stack(
+        //         children: [
+        //           Container(
+        //             width: Get.width,
+        //             height: Get.height * (1.0 - headerHeightWeight),
+        //             child: Column(
+        //                 mainAxisAlignment: MainAxisAlignment.start,
+        //                 crossAxisAlignment: CrossAxisAlignment.center,
+        //                 children: [
+        //                   Expanded(
+        //                     flex: 4,
+        //                     child: Image(
+        //                       width: Get.width,
+        //                       height: Get.height * 0.5,
+        //                       fit: BoxFit.cover,
+        //                       image: AssetImage("assets/images/img_sample_profile.png"),
+        //                     ),
+        //                   ),
+        //                   Expanded(
+        //                     flex: 3,
+        //                     child: Image(
+        //                       width: Get.width,
+        //                       height: Get.height * 0.33,
+        //                       fit: BoxFit.cover,
+        //                       image: AssetImage("assets/images/profile_bg.png"),
+        //                     ),
+        //                   ),
+        //                 ]
+        //             )
+        //           ),
+        //           Container(
+        //             width: Get.width,
+        //             height: Get.height * (1.0 - headerHeightWeight),
+        //             child: Column(
+        //               children: [
+        //                 const Expanded(flex: 5, child: SizedBox()),
+        //                 const Expanded(flex: 6,
+        //                     child: _ProfileInfoPage(workerId: "AL123456", workerName: "장지웅", workerDepartment: "Product Development Div.", workerType: "CTO",)
+        //                 )
+        //               ],
+        //             ),
+        //           )
+        //         ]
+        //     ),
+        //   ]
+        // )
       )
     );
   }
